@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailvideos_tags %}
+{% block body_class %}template-homepage{% endblock %}
+{% block content %}
+<main id="main">
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex justify-content-center align-items-center">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                {% image self.img_cover1 max-2000x2000 as banner1 %}
+                <img class="d-block w-100" src="{{ banner1.url }}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h4>Learning Today,<br>Leading Tomorrow</h1>
+                        <h5>We are team of talented designers making websites with Bootstrap</h2>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                {% image self.img_cover2 max-2000x2000 as banner2 %}
+                <img class="d-block w-100" src="{{ banner2.url }}" alt="Second slide">             </div>
+                <div class="carousel-caption d-none d-md-block">
+                        <h4>Learning Today,<br>Leading Tomorrow</h1>
+                        <h5>We are team of talented designers making websites with Bootstrap</h2>
+                  </div>
+              <div class="carousel-item">
+                {% image self.img_cover3 max-2000x2000 as banner3 %}
+                <img class="d-block w-100" src="{{ banner3.url }}" alt="Third slide">            </div>
+                <div class="carousel-caption d-none d-md-block">
+                        <h4>Learning Today,<br>Leading Tomorrow</h1>
+                        <h5>We are team of talented designers making websites with Bootstrap</h2>
+                  </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>        
+    </section>
+    <!-- End Hero -->
+
+
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>درباره</h2>
+                    <p>درباره ما</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                        {% image self.img_about max-2000x2000 as img_about %}
+                        <img src="{{ img_about.url }}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                        <h3>{{ page.header_about|safe }}</h3>
+                        <p class="txt font-italic">
+                            {{ page.header_about_italic|safe }}
+                        </p>
+                        <ul>
+                            <li class="txt"><i class="icofont-check-circled"></i>{{ page.about_paragraph_check1|safe }}
+                            </li>
+                            <li class="txt"><i class="icofont-check-circled"></i>{{ page.about_paragraph_check2|safe }}
+                            </li>
+                            <li class="txt"><i class="icofont-check-circled"></i>{{ page.about_paragraph_check3|safe }}
+                            </li>
+                        </ul>
+                        <p class="txt">
+                            {{ page.about_paragraph|safe }}
+                        </p>
+                        <a href="about" class="learn-more-btn">ادامه</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End About Section -->
+
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts section-bg">
+            <div class="container">
+
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">{{ page.counter1 }}</span>
+                        <p style="text-align: center !important;">{{ page.name_of_counter1 }}</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">{{ page.counter2 }}</span>
+                        <p style="text-align: center !important;">{{ page.name_of_counter2 }}</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">{{ page.counter3 }}</span>
+                        <p style="text-align: center !important;">{{ page.name_of_counter3 }}</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">{{ page.counter4 }}</span>
+                        <p style="text-align: center !important;">{{ page.name_of_counter4 }}</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- End Counts Section -->
+
+        <!-- ======= Why Us Section ======= -->
+        <section id="why-us" class="why-us">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="content">
+                            <h3>{{ page.header_of_green_box }}</h3>
+                            <p>
+                                {{ page.text_of_green_box }}
+                            </p>
+                            <div class="text-center">
+                                <a href="about" class="more-btn">ادامه <i class="bx bx-chevron-left"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="icon-boxes d-flex flex-column justify-content-center">
+                            <div class="row">
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                    <div class="icon-box mt-4 mt-xl-0">
+                                        <span class="iconify" data-icon="bx-bx-award" data-inline="false"
+                                            style="color: #5fcf80;" data-width="48" data-height="48"></span>
+                                        <!--<i class="bx bx-receipt"></i>-->
+                                        <h4>{{ page.header_of_box1 }}</h4>
+                                        <p>{{ page.text_of_box1 }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                    <div class="icon-box mt-4 mt-xl-0">
+                                        <i class="bx bx-cube-alt"></i>
+                                        <h4>{{ page.header_of_box2 }}</h4>
+                                        <p>{{ page.text_of_box2 }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                    <div class="icon-box mt-4 mt-xl-0">
+                                        <i class="bx bx-images"></i>
+                                        <h4>{{ page.header_of_box3 }}</h4>
+                                        <p>{{ page.text_of_box3 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End .content-->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Why Us Section -->
+
+        <!-- ======= Clients Section ======= -->
+        <section class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-center text-center mb-4">
+                    <div class="col-5">
+                        <h3 class="h3 heading">همکاری با ما</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <a href="#" class="client-logo">
+                            {% image self.img_client1 max-2000x2000 as client1 %}
+                            <img src="{{ client1.url }}" alt="Image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <a href="#" class="client-logo">
+                            {% image self.img_client2 max-2000x2000 as client2 %}
+                            <img src="{{ client2.url }}" alt="Image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <a href="#" class="client-logo">
+                            {% image self.img_client3 max-2000x2000 as client3 %}
+                            <img src="{{ client3.url }}" alt="Image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <a href="#" class="client-logo">
+                            {% image self.img_client4 max-2000x2000 as client4 %}
+                            <img src="{{ client4.url }}" alt="Image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <a href="#" class="client-logo">
+                            {% image self.img_client5 max-2000x2000 as client5 %}
+                            <img src="{{ client5.url }}" alt="Image" class="img-fluid"></a>
+                    </div>
+                    <div class="col-4 col-sm-4 col-md-2">
+                        <a href="#" class="client-logo">
+                            {% image self.img_client6 max-2000x2000 as client6 %}
+                            <img src="{{ client6.url }}" alt="Image" class="img-fluid"></a>
+                    </div>
+
+                </div>
+            </div>
+        </section><!-- End Clients Section -->
+
+    </main>
+    <!-- End #main -->
+    {% endblock %}

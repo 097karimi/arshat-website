@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags wagtailvideos_tags %}
+{% block body_class %}template-homepage{% endblock %}
+{% block content %}
+                <main dir='ltr' id="main">
+                    <!-- ======= Breadcrumbs ======= -->
+                    <div  class="breadcrumbs" data-aos="fade-in">
+                        <div class="container">
+                        {% image self.ad_image max-2000x2000 as ad_img %}          
+                        <img src="{{ ad_img.url }}"  style="height:200px;width:100%;" alt="advertisement">
+                        </div>
+                    </div>
+                    <!-- End Breadcrumbs -->
+
+                    <!-- ======= Events Section ======= -->
+                    <section id="events" class="events">
+                      <div class="container" data-aos="fade-up">
+
+                        <div class="row">
+                          {% for post in posts %}
+                          <div class="col-md-6 d-flex align-items-stretch">
+                            <div class="card">
+                              <div class="card-img">
+                                {% image post.img max-800x533 as banner %}
+                                <img src="{{ banner.url }}" alt="...">
+                              </div>
+                              <div class="card-body">
+                                <h5 class="card-title"><a href="{{ post.slug }}">{{ post.custom_title }}</a></h5>
+                                <p class="font-italic text-center">{{ post.date }}</p>
+                                <p dir="rtl" class="card-text">{{ post.overview }}</p>
+                              </div>
+                            </div>
+                          </div>
+                        {% endfor %}
+
+                        </div>
+
+                      </div>
+                    </section>
+                    <!-- End Events Section -->
+                </main>
+                <!-- End #main -->
+            {% endblock %}

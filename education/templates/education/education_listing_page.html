@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+{% block content %}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div  class="breadcrumbs" data-aos="fade-in">
+          <div class="container">
+              {% image self.ad_image max-2000x2000 as ad_img %}          
+              <img src="{{ ad_img.url }}"  style="height:200px;width:100%;" alt="25">
+             </div>
+        </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Courses Section ======= -->
+    <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+          {% for post in posts %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+              {% image post.img max-800x533 as banner %}
+              <img src="{{ banner.url }}" class="img-fluid" alt="...">
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4>سازه ماکارونی</h4>
+                </div>
+                <h3><a href= "{{ post.slug }}">{{ post.custom_title }}</a></h3>
+                <p style="font-weight: bold; text-align: justify;">{{ post.overview }}</p>
+                <div class="trainer d-flex justify-content-between align-items-center">
+                  <div class="trainer-profile d-flex align-items-center">
+                    <img src="{% static 'web/img/trainers/trainer-1.jpg' %}" class="img-fluid" alt="">
+                    <span>{{ post.author }}</span>
+                  </div>
+                  <div class="trainer-rank d-flex align-items-center">
+                    <i class="bx bx-user"></i>&nbsp;50
+                    &nbsp;&nbsp;
+                    <i class="bx bx-heart"></i>&nbsp;65
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- End Course Item-->
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Courses Section -->
+
+  </main><!-- End #main -->
+  {% endblock %}
