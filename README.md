@@ -1,5 +1,5 @@
 # Arshat website
-***Website with landing page,about us, education, workshop and competition.***
+***Website with landing page, about us, education, workshop and competition.***
 
 
 # Installation 
